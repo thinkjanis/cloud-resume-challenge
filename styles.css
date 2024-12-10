@@ -1,0 +1,56 @@
+@media print {
+    body {
+        background-color: white !important;
+    }
+    
+    .max-w-4xl {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .shadow-lg {
+        box-shadow: none !important;
+    }
+    
+    a {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom hover effects */
+a:hover {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Responsive font sizes for mobile */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.75rem !important;
+    }
+    
+    h2 {
+        font-size: 1.25rem !important;
+    }
+    
+    body {
+        font-size: 0.9rem;
+    }
+}
+
+/* Better spacing for mobile */
+@media (max-width: 640px) {
+    .max-w-4xl {
+        margin: 0 !important;
+    }
+    
+    section {
+        margin-bottom: 1.5rem !important;
+    }
+}

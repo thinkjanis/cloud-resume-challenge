@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janis Solks - Resume</title>
+    <script src="index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html.dark {
+            background-color: #000000;
+            color-scheme: dark;
+        }
+        
+        html.dark body {
+            background-color: #000000;
+        }
+
+        .dark .content-wrapper {
+            background-color: #121212;
+        }
+        
+        html, body {
+            min-height: 100vh;
+        }
+
+        .transition-theme {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 dark:bg-black font-inter transition-theme">
+    <div class="content-wrapper max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-[#121212] shadow-lg my-8 relative transition-theme">
+        <div class="absolute top-4 left-4 text-gray-700 dark:text-gray-300">Views: <span id="ViewCount"></span></div>
+        <button onclick="toggleTheme()" class="absolute top-4 right-4 p-2 rounded-full bg-gray-100 dark:bg-[#1a1a1a] hover:bg-gray-200 dark:hover:bg-[#242424] transition-theme" aria-label="Toggle theme">
+            <svg class="w-6 h-6 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <svg class="w-6 h-6 block dark:hidden text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-2 dark:text-gray-200">Janis Solks</h1>
+            <div class="text-gray-600 dark:text-gray-400 flex flex-wrap justify-center gap-2">
+                <a href="mailto:cv@thinkjanis.com" class="hover:text-blue-600 dark:hover:text-blue-400">cv@thinkjanis.com</a> |
+                <span>London, UK</span> |
+                <a href="#" class="hover:text-blue-600 dark:hover:text-blue-400">LinkedIn</a>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2">Professional Summary</h2>
+            <p class="text-gray-700 dark:text-gray-300">
+                Infrastructure Analyst with hands-on experience across 1st to 3rd line support and systems administration. Progressed from a Service Desk role to 3rd line support, demonstrating strong troubleshooting skills and a commitment to user satisfaction. Seeking my next challenge to enhance IT support operations, drive efficiency, and deliver reliable, user-focused solutions.
+            </p>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2">Work Experience</h2>
+            
+            <!-- Sling Shot Intergalactic -->
+            <div class="mb-6">
+                <div class="flex flex-wrap justify-between items-baseline">
+                    <h3 class="text-lg font-semibold dark:text-gray-200">Sling Shot Intergalactic</h3>
+                    <span class="text-gray-600 dark:text-gray-400">Los Angeles, CA (Remote)</span>
+                </div>
+                <div class="flex flex-wrap justify-between items-baseline">
+                    <h4 class="text-gray-700 dark:text-gray-300 font-medium">System Administrator (Freelance)</h4>
+                    <span class="text-gray-600 dark:text-gray-400">September 2023 - Present</span>
+                </div>
+                <ul class="list-disc ml-5 mt-2 text-gray-700 dark:text-gray-300">
+                    <li>Implemented Veeam Backup & Replication for 5 servers, leading to a 75% reduction in data loss risk and a 50% improvement in recovery times.</li>
+                    <li>Managed a Hyper-V infrastructure supporting both Windows and Linux servers, optimising resource utilisation and reducing server downtime by 30% through proactive maintenance and upgrades.</li>
+                    <li>Led an onsite server upgrade from Thunderbolt v2 to v3, achieving a 100% increase in file transfer speeds, which improved data accessibility and reduced processing times for critical workflows.</li>
+                </ul>
+                <div class="mt-2 text-sm flex flex-wrap gap-2">
+                    <span class="font-medium dark:text-gray-200">Skills:</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Hyper-V</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Windows Server</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Veeam Backup</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">System Administration</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Dell iDRAC</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Bash</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">CentOS</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Mac</span>
+                </div>
+            </div>
+
+            <!-- London Borough of Waltham Forest -->
+            <div class="mb-6">
+                <div class="flex flex-wrap justify-between items-baseline">
+                    <h3 class="text-lg font-semibold dark:text-gray-200">London Borough of Waltham Forest</h3>
+                    <span class="text-gray-600 dark:text-gray-400">London, UK (Hybrid)</span>
+                </div>
+                
+                <!-- Infrastructure Analyst -->
+                <div class="mb-4">
+                    <div class="flex flex-wrap justify-between items-baseline">
+                        <h4 class="text-gray-700 dark:text-gray-300 font-medium">Infrastructure Analyst</h4>
+                        <span class="text-gray-600 dark:text-gray-400">October 2022 - October 2023</span>
+                    </div>
+                    <ul class="list-disc ml-5 mt-2 text-gray-700 dark:text-gray-300">
+                        <li>Spearheaded the resolution of third-line support tickets by collaborating with Microsoft and working closely with colleagues to deliver timely and effective solutions, resulting in a 20% reduction in ticket resolution time and a 50% decrease in the overall ticket queue load through improved workflows and resource allocation.</li>
+                        <li>Deployed Nagios XI to monitor infrastructure, identifying and resolving server issues and SSL certificate expiries, reducing downtime by 30% and boosting system reliability by 25% across a 100+ VM estate.</li>
+                        <li>Streamlined deployment time by 30% and improved operational efficiency through standardised VM build processes on Azure and Nutanix, ensuring consistent, compliant, and reliable deployments across the organisation.</li>
+                    </ul>
+                    <div class="mt-2 text-sm flex flex-wrap gap-2">
+                        <span class="font-medium dark:text-gray-200">Skills:</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Azure</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">3rd line support</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Nutanix</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">PowerShell</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Windows Server</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Group Policy</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Virtualisation</span>
+                    </div>
+                </div>
+
+                <!-- IT Service Desk Analyst -->
+                <div>
+                    <div class="flex flex-wrap justify-between items-baseline">
+                        <h4 class="text-gray-700 dark:text-gray-300 font-medium">IT Service Desk Analyst</h4>
+                        <span class="text-gray-600 dark:text-gray-400">October 2021 - October 2022</span>
+                    </div>
+                    <ul class="list-disc ml-5 mt-2 text-gray-700 dark:text-gray-300">
+                        <li>Developed and implemented a Standard Operating Procedure (SOP) for laptop repairs, cutting turnaround times by 50%, improving service delivery and customer satisfaction.</li>
+                        <li>Delivered EUC support for software and hardware issues, preventing up to 20 weekly escalations and ensuring timely resolution on technical incidents.</li>
+                        <li>Provided 1st-line support for 50+ daily customer queries across phone, email, self-service portals, and Microsoft Teams, maintaining a high satisfaction rate in a 2000+ user organisation.</li>
+                    </ul>
+                    <div class="mt-2 text-sm flex flex-wrap gap-2">
+                        <span class="font-medium dark:text-gray-200">Skills:</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Active Directory</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">SCCM</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">1st line support</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Exchange</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Microsoft Entra</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">AVD</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Microsoft 365</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Service Desk</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Experience -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2">Project Experience</h2>
+            <div class="mb-4">
+                <div class="flex flex-wrap justify-between items-baseline">
+                    <h3 class="text-lg font-semibold dark:text-gray-200">London Borough of Waltham Forest</h3>
+                    <span class="text-gray-600 dark:text-gray-400">London, UK</span>
+                </div>
+                <div class="flex flex-wrap justify-between items-baseline">
+                    <h4 class="text-gray-700 dark:text-gray-300 font-medium">Monitoring System Implementation Lead</h4>
+                    <span class="text-gray-600 dark:text-gray-400">June 2023</span>
+                </div>
+                <p class="mt-2 text-gray-700 dark:text-gray-300">
+                    Deployed Nagios XI to enhance system oversight and automate SSL certificate expiry alerts. Led the end-to-end process, including server preparation, Ubuntu installation, Nagios configuration, and integration with Active Directory. Simulated test scenarios to validate monitoring capabilities, ensuring a proactive approach to issue resolution.
+                </p>
+                <div class="mt-2 text-sm flex flex-wrap gap-2">
+                    <span class="font-medium dark:text-gray-200">Skills:</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Nagios XI</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Ubuntu Server</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Bash</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">HP iLO</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Microsoft Defender for Cloud</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Linux Server Hardening</span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="flex flex-wrap justify-between items-baseline">
+                    <h3 class="text-lg font-semibold dark:text-gray-200">Cloud Resume Challenge</h3>
+                    <span class="text-gray-600 dark:text-gray-400">June 2023</span>
+                </div>
+                <p class="mt-2 text-gray-700 dark:text-gray-300">
+                    Developed a personal resume website hosted on AWS, utilising S3 for static site hosting, CloudFront for CDN, and Route 53 for DNS management. Implemented a view counter using DynamoDB for data storage and AWS Lambda with Python for backend functionality.
+                </p>
+                <div class="mt-2 text-sm flex flex-wrap gap-2">
+                    <span class="font-medium dark:text-gray-200">Skills:</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">AWS</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Lambda</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">JavaScript</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">DynamoDB</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">HTML/CSS</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">CloudFront</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Route53</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">S3</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2">Certifications & Course Experience</h2>
+            <ul class="list-disc ml-5 text-gray-700 dark:text-gray-300">
+                <li>Google IT Support Professional Certificate | Coursera | August 2021</li>
+                <li>AWS Cloud Essentials - Knowledge Badge | AWS Skill Builder | November 2024</li>
+                <li>Prepare for the Azure Fundamentals (AZ-900) Certificate | Microsoft Press | October 2024</li>
+                <li>CompTIA A+ Training Course | Professor Messer | June 2024</li>
+                <li>IT Essentials: PC Hardware and Software | Cisco Networking Academy | June 2022</li>
+                <li>Backup and Disaster Recovery Administrator | Udemy | November 2023</li>
+            </ul>
+        </section>
+
+        <!-- Skills & Interests -->
+        <section>
+            <h2 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2">Skills & Interests</h2>
+            <div class="text-gray-700 dark:text-gray-300 flex flex-col gap-4">
+                <div class="text-sm flex flex-wrap gap-2">
+                    <span class="font-medium dark:text-gray-200">Skills:</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">SQL</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Git</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Docker</span>
+                </div>
+                <div class="text-sm flex flex-wrap gap-2">
+                    <span class="font-medium dark:text-gray-200">Interests:</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Continuous Learning</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full">Prompt Engineering</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
