@@ -1,3 +1,7 @@
+#------------------------------------------------------------------------------
+# Terraform Cloud Configuration
+#------------------------------------------------------------------------------
+# Define Terraform Cloud workspace settings
 terraform { 
   cloud { 
     organization = "thinkjanis" 
@@ -7,6 +11,10 @@ terraform {
   } 
 }
 
+#------------------------------------------------------------------------------
+# Required Providers
+#------------------------------------------------------------------------------
+# Specify required provider versions and configurations
 terraform {
   required_providers {
     aws = {
@@ -15,6 +23,10 @@ terraform {
   }
 }
 
+#------------------------------------------------------------------------------
+# AWS Provider Configuration
+#------------------------------------------------------------------------------
+# Configure AWS provider (credentials managed in Terraform Cloud)
 provider "aws" {
   # Credentials are defined in Terraform Cloud
 }
