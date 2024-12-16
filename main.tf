@@ -60,7 +60,7 @@ resource "aws_cloudfront_origin_access_control" "website_oac" {
 # CloudFront distribution for content delivery
 resource "aws_cloudfront_distribution" "website_cdn" {
   enabled             = true
-  aliases            = ["resume.thinkjanis.com"]
+  aliases            = [var.domain_name]
   default_root_object = "index.html"
   
   # Configure S3 bucket as the origin
@@ -136,7 +136,7 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
 #------------------------------------------------------------------------------
 # Create Route 53 Hosted Zone for the subdomain
 resource "aws_route53_zone" "main" {
-  name = "resume.thinkjanis.com"
+  name = var.domain_name
 }
 
 #------------------------------------------------------------------------------
@@ -146,7 +146,7 @@ resource "aws_route53_zone" "main" {
 resource "aws_acm_certificate" "domain_cert" {
   provider = aws.us_east_1  # Explicit provider for CloudFront certificate
 
-  domain_name       = "resume.thinkjanis.com"
+  domain_name       = var.domain_name
   validation_method = "DNS"
 
   lifecycle {
@@ -185,7 +185,7 @@ resource "aws_acm_certificate_validation" "domain_cert_validation" {
 # Create A record for CloudFront
 resource "aws_route53_record" "www" {
   zone_id = aws_route53_zone.main.zone_id
-  name    = "resume.thinkjanis.com"
+  name    = var.domain_name
   type    = "A"
 
   alias {

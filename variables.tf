@@ -38,3 +38,12 @@ variable "tags" {
     ManagedBy   = "Terraform"
   }
 }
+
+#------------------------------------------------------------------------------
+# Website Configuration
+#------------------------------------------------------------------------------
+variable "domain_name" {
+  description = "The domain name for the website (e.g., resume.thinkjanis.com)"
+  type        = string
+  default     = "resume.thinkjanis.com"
+}
