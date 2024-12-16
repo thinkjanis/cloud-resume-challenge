@@ -60,6 +60,7 @@ resource "aws_cloudfront_origin_access_control" "website_oac" {
 # CloudFront distribution for content delivery
 resource "aws_cloudfront_distribution" "website_cdn" {
   enabled             = true
+  aliases            = ["resume.thinkjanis.com"]
   default_root_object = "index.html"
   
   # Configure S3 bucket as the origin
@@ -93,10 +94,14 @@ resource "aws_cloudfront_distribution" "website_cdn" {
   
   # SSL/TLS certificate configuration
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = aws_acm_certificate.domain_cert.arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
   
   tags = var.tags
+  
+  depends_on = [aws_acm_certificate_validation.domain_cert_validation]
 }
 
 #------------------------------------------------------------------------------
@@ -124,4 +129,68 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
       }
     ]
   })
+}
+
+#------------------------------------------------------------------------------
+# Route 53 Hosted Zone
+#------------------------------------------------------------------------------
+# Create Route 53 Hosted Zone for the subdomain
+resource "aws_route53_zone" "main" {
+  name = "resume.thinkjanis.com"
+}
+
+#------------------------------------------------------------------------------
+# ACM Certificate and Validation
+#------------------------------------------------------------------------------
+# 1. Request the certificate
+resource "aws_acm_certificate" "domain_cert" {
+  provider = aws.us_east_1  # Explicit provider for CloudFront certificate
+
+  domain_name       = "resume.thinkjanis.com"
+  validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+# 2. Create DNS records for certificate validation
+resource "aws_route53_record" "domain_cert_validation" {
+  for_each = {
+    for dvo in aws_acm_certificate.domain_cert.domain_validation_options : dvo.domain_name => {
+      name   = dvo.resource_record_name
+      record = dvo.resource_record_value
+      type   = dvo.resource_record_type
+    }
+  }
+
+  zone_id = aws_route53_zone.main.zone_id
+  name    = each.value.name
+  type    = each.value.type
+  records = [each.value.record]
+  ttl     = 60
+}
+
+# 3. Validate the certificate
+resource "aws_acm_certificate_validation" "domain_cert_validation" {
+  provider = aws.us_east_1  # Same provider as the certificate
+
+  certificate_arn         = aws_acm_certificate.domain_cert.arn
+  validation_record_fqdns = [for record in aws_route53_record.domain_cert_validation : record.fqdn]
+}
+
+#------------------------------------------------------------------------------
+# A Record for CloudFront
+#------------------------------------------------------------------------------
+# Create A record for CloudFront
+resource "aws_route53_record" "www" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "resume.thinkjanis.com"
+  type    = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.website_cdn.domain_name
+    zone_id                = aws_cloudfront_distribution.website_cdn.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
