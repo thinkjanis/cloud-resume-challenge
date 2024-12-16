@@ -125,11 +125,3 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
     ]
   })
 }
-
-#------------------------------------------------------------------------------
-# Outputs
-#------------------------------------------------------------------------------
-# CloudFront distribution domain name for website access
-output "cloudfront_url" {
-  value = aws_cloudfront_distribution.website_cdn.domain_name
-}
